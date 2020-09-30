@@ -1,0 +1,65 @@
+\section{Dynamical system analysis of simple SIR model} 
+
+The simple SIR model can be analysed using the tools of dynamical systems.
+
+The model being:
+
+\begin{align}
+\dv{t}S(t) =& - 1/N \beta I(t) S(t) \label{eq:SIR_S}\\
+\dv{t}I(t) =& 1/N \beta I(t)S(t) - \gamma I(t) \label{eq:SIR_I}\\
+\dv{t}R(t) =& \gamma I(t) \label{eq:SIR_R}
+\end{align}
+
+ where $a$ is reciprocal incubation time,
+$\beta$ is reciprocal time between contact,
+$\gamma$ is reciprocal recovery time,
+and $\eta$ is efficiancy of infection (the proportion of exposed population becoming vectors
+ of the diease).
+Note that we here assume a consant population:
+
+\begin{align*}
+S(t) + E(t) + I(t) + R(t) = N \quad , \quad \forall t \in \left[ 0, \infty \right[ %\\
+% \dv{t} \left( S(t) + E(t) + I(t) + R(t) \right) = 0
+\end{align*}
+
+Ihe following results are found by following the route marked out for us in \cite{strogats_1994} assignment 3.7.6., though using slightly different notation.
+
+Using the informaiton from (\ref{eq:SIR_S}) and (\ref{eq:SIR_R}), by eleminating $I(t)$, we see that:
+
+\begin{align}
+\dv{t}S(t) =& - 1/N \frac{\beta}{\gamma} S(t) \dv{t}R(t) \nonumber \\
+\int_{0}^{t}\dd t' \frac{1}{S(t')} \dv{t'} S(t') =& - 1/N \frac{\beta}{\gamma} \int_{0}^{t} \dd t \dv{t'}R(t') \nonumber \\
+\ln \left( \frac{S(t)}{S(0)} \right) =& - 1/N \frac{\beta}{\gamma} (R(t) - R(0)) \nonumber \\
+S(t) =& S(0) \exp { - 1/N frac{\beta}{\gamma} (R(t) - R(0)) } \label{eq:SR} 
+\end{align}
+
+Using the constraint of the constant population, and using the assumption that $R(0) = 0$, we can write:
+
+\begin{align*}
+\dv{t} R(t) =& \gamma I(t)\\
+=& \gamma (N - R(t) - S(t))\\
+=& \gamma \left(N - R(t) - S(0) \exp { - 1/N \frac{\beta}{\gamma} R(t) } \right)
+\end{align*}
+
+Rescaling such that $u(t) = - 1/N frac{\beta}{\gamma} R(t)$ 
+
+\begin{align*}
+N \frac{\gamma}{\beta}\dv{t} u(t) =& \gamma \left(N - N \frac{\gamma}{\beta} u(t) - S(0) \exp { -  u(t) } \right) \\
+\frac{N}{S(0)} \frac{1}{\beta}\dv{t} u(t) =& \frac{N}{S(0)} - \frac{N}{S(0)} \frac{\gamma}{\beta} u(t) - \exp { -u(t) }
+\end{align*}
+
+and by rescaling the time $\tau = \frac{S(0)}{N} \beta t$, thus non-dimensionalizing the previous equation, the following equation is optained:
+
+\begin{align*}
+\dv{\tau} u(\tau) =& (\frac{N}{S(0)} - \frac{N}{S(0)} \frac{\gamma}{\beta} u(\tau) - \exp { -u(\tau) })
+=& a - b u(\tau) - \exp{ -u(\tau) }
+\end{align*}
+
+with $a=\frac{N}{S(0)}$, $b = \frac{N}{S(0)} \frac{1}{R_{0}}$ and $R_{0} = \frac{\beta}{\gamma}$. \\
+It is not hard to see that $a \geq 1$ and $b>0$, since $R_{0} > 0$
+
+To find the dynamis of the non-dimentionalized system, we can see that by considering the condition:
+
+\begin{align*}
+\dv{\tau} u(\tau) =& 0 \Rightarrow a - b u(\tau) = \exp { -u(\tau) }
+\end{align*}

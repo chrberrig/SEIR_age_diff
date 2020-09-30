@@ -1,0 +1,1 @@
+SEIR model of COVID-19 with contact mixing. Note that 92.0\% becomes infected, with a maximum infectionratio at 13.0\%, at time 71.0 days.

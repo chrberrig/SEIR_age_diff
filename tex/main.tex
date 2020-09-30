@@ -1,0 +1,36 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage[utf8]{inputenc}
+
+\input{/home/chrberrig/Documents/LaTeX/usepackages.tex}
+\input{/home/chrberrig/Documents/LaTeX/newcommands.tex}
+%%% specific for article class %%%
+\usepackage[rmargin=2.7cm,lmargin=2.7cm,bmargin=2.5cm,tmargin=2.5cm]{geometry}
+
+% \usepackage{natbib}            % for bibtex
+\usepackage[backend=biber,style=phys]{biblatex}		% for biblatex
+\bibliography{/home/chrberrig/Documents/LaTeX/bib.bib}	% for biblatex
+
+\title{SEIR modelling of COVID-19 in the danish population with age mixing}
+\usepackage[affil-it]{authblk}	% for author affiliations
+\author[1]{Christian Berrig
+\thanks{Electronic address: \href{mailto:chrberrig@protonmail.ch}{chrberrig@protonmail.ch}}
+}
+\affil[1]{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% \input{simple_sir_dynsys.tex} 
+\input{mixed_seirs-vt.tex} 
+
+\appendix
+\input{appendix_contact.tex} 
+
+% \bibliographystyle{plain}                                     % for bibtex
+% \bibliography{/Users/chrberrig/Documents/LaTeX/bib.bib}       % for bibtex
+\printbibliography      % for biblatex
+
+\end{document}
